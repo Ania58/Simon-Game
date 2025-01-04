@@ -8,13 +8,14 @@ let gameStarted = false;
 
 let level = 0;
 
-const isMobile = () => /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
 
 $(document).ready(() => {
-    if (isMobile()) {
+    if (isMobile) {
         $("#level-title").text("Tap outside the buttons to start");
     }
 });
+
 
 const startGame = (event) => {
     if (!gameStarted) {
@@ -111,7 +112,7 @@ const checkAnswer = (currentIndex) => {
 
         $("body").addClass("game-over");
 
-        const gameOverMessage = isMobile() ? "Game Over, Tap to Restart" : "Game Over, Press Any Key to Restart";
+        const gameOverMessage = isMobile ? "Game Over, Tap to Restart" : "Game Over, Press Any Key to Restart";
 
         $("#level-title").text(gameOverMessage);
 
