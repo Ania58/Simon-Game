@@ -24,6 +24,8 @@ body {
   width: 200px;
   border: 10px solid black;
   border-radius: 20%;
+  pointer-events: all;
+  touch-action: manipulation;
 }
 
 .game-over {
