@@ -8,6 +8,13 @@ let gameStarted = false;
 
 let level = 0;
 
+const isMobile = () => /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+
+$(document).ready(() => {
+    if (isMobile()) {
+        $("#level-title").text("Tap outside the buttons to start");
+    }
+});
 
 const startGame = (event) => {
     if (!gameStarted) {
