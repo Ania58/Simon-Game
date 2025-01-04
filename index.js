@@ -21,7 +21,7 @@ const startGame = (event) => {
 };
 
 $(document).on("keydown", startGame);
-$(document).on("touchstart", function (e) {
+$(document).on("pointerdown", function (e) {
     if (!gameStarted && !$(e.target).hasClass("btn")) {
         startGame();  
     }
@@ -53,7 +53,7 @@ const playSound = (name) => {
 }
 
 const handleClick = () => {
-    $(".btn").off("click touchstart").on("click touchstart", function(e) {
+    $(".btn").off("pointerdown").on("pointerdown", function(e) {
         e.preventDefault();
         e.stopPropagation(); 
 
