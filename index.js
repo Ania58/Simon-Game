@@ -22,7 +22,7 @@ const startGame = (event) => {
 
 $(document).on("keydown", startGame);
 $(document).on("touchstart", function (e) {
-    if (!gameStarted && !e.target.classList.contains("btn")) {
+    if (!gameStarted && !$(e.target).hasClass("btn")) {
         startGame();  
     }
 });
@@ -54,6 +54,7 @@ const playSound = (name) => {
 
 const handleClick = () => {
     $(".btn").off("click touchstart").on("click touchstart", function(e) {
+        e.preventDefault();
         e.stopPropagation(); 
 
         const userChosenColour = this.id
