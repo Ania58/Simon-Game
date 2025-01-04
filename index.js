@@ -9,6 +9,25 @@ let gameStarted = false;
 let level = 0;
 
 
+const startGame = (event) => {
+    if (!gameStarted) {
+        gameStarted = true;
+        level = 0;
+        gamePattern = [];
+        userClickedPattern = [];
+        $("#level-title").text(`Level ${level}`);
+        nextSequence();
+    }
+};
+
+
+$(document).on("keydown touchstart", function (e) {
+    if (!gameStarted && !e.target.classList.contains("btn")) {
+        startGame(e);  
+    }
+});
+
+
 const nextSequence = () => {
     level ++;
 
@@ -34,7 +53,7 @@ const playSound = (name) => {
 }
 
 const handleClick = () => {
-    $(".btn").off("click").on("click", function() {
+    $(".btn").off("click touchstart").on("click touchstart", function() {
         const userChosenColour = this.id
 
         userClickedPattern.push(userChosenColour);
