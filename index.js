@@ -111,7 +111,9 @@ const checkAnswer = (currentIndex) => {
 
         $("body").addClass("game-over");
 
-        $("#level-title").text("Game Over, Press Any Key to Restart");
+        const gameOverMessage = isMobile() ? "Game Over, Tap to Restart" : "Game Over, Press Any Key to Restart";
+
+        $("#level-title").text(gameOverMessage);
 
         setTimeout(() => {
             $("body").removeClass("game-over");
