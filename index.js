@@ -20,8 +20,8 @@ const startGame = (event) => {
     }
 };
 
-
-$(document).on("keydown touchstart", function (e) {
+$(document).on("keydown", startGame);
+$(document).on("touchstart", function (e) {
     if (!gameStarted && !e.target.classList.contains("btn")) {
         startGame(e);  
     }
