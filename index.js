@@ -47,12 +47,13 @@ const nextSequence = () => {
     
     gamePattern.push(randomChosenColour);
 
-    $(`#${randomChosenColour}`).fadeOut(100).fadeIn(100).fadeOut(100).fadeIn(100);
-
-    playSound(randomChosenColour);
-
-    animatePress(randomChosenColour);
-
+    gamePattern.forEach((colour, index) => {
+        setTimeout(() => {
+            $(`#${colour}`).fadeOut(100).fadeIn(100).fadeOut(100).fadeIn(100);
+            playSound(colour);
+            animatePress(colour);
+        }, 500 * index); 
+    });
 }
 
 const playSound = (name) => {
