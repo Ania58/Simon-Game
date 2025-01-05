@@ -86,19 +86,6 @@ const animatePress = (currentColour) => {
     }, 100)
 }
 
-
-$(document).keydown(function () {
-    if (gameStarted === false) {
-        gameStarted = true;
-        level = 0;  
-        gamePattern = []; 
-        userClickedPattern = [];
-        $("#level-title").text(`Level ${level}`);
-        nextSequence();
-    } 
-});
-
-
 const checkAnswer = (currentIndex) => {
     if (gamePattern[currentIndex]===userClickedPattern[currentIndex]) {
         if (userClickedPattern.length === gamePattern.length) {
